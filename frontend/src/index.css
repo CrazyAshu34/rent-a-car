@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d6dae2;
+  --color-ink-300: #b3bac8;
+  --color-ink-400: #8791a5;
+  --color-ink-500: #667088;
+  --color-ink-600: #4d566b;
+  --color-ink-700: #3b4254;
+  --color-ink-800: #1f2638;
+  --color-ink-900: #0b1220;
+
+  --color-brand-50: #fff4ee;
+  --color-brand-100: #ffe5d6;
+  --color-brand-400: #ff8b57;
+  --color-brand-500: #ff6b2c;
+  --color-brand-600: #f04e0c;
+  --color-brand-700: #c93c08;
+
+  --shadow-card: 0 1px 2px rgb(11 18 32 / 0.04), 0 8px 24px -12px rgb(11 18 32 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(11 18 32 / 0.05), 0 20px 40px -16px rgb(11 18 32 / 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-50 font-sans text-ink-900 antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-brand-500 text-white shadow-sm hover:bg-brand-600 active:bg-brand-700;
+}
+@utility btn-dark {
+  @apply btn bg-ink-900 text-white hover:bg-ink-800;
+}
+@utility btn-ghost {
+  @apply btn border border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50;
+}
+@utility input {
+  @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 transition placeholder:text-ink-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-500/15 focus:outline-none;
+}
+@utility label {
+  @apply mb-1.5 block text-xs font-semibold tracking-wide text-ink-600 uppercase;
+}
+@utility card {
+  @apply rounded-2xl border border-ink-100 bg-white shadow-card;
+}

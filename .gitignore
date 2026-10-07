@@ -1,0 +1,15 @@
+# secrets / local config
+.env
+.env.*
+!.env.example
+
+# build output
+*.exe
+backend/bin/
+frontend/dist/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
